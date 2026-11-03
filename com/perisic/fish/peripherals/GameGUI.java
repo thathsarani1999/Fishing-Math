@@ -173,18 +173,44 @@ public class GameGUI extends JFrame implements ActionListener {
         return buttonPanel;
     }
 
+//    private void startTimer() {
+//        gameTimer = new Timer(1000, e -> {
+//            timeLeft--;
+//            timerLabel.setText("Time Left: " + timeLeft + "s");
+//            if (timeLeft <= 0) {
+//                gameTimer.stop();
+//                JOptionPane.showMessageDialog(this, "Time's up! Your final score: " + score);
+//                
+//                setVisible(false);
+//                new MainGUI().setVisible(true);
+//            }
+//        });
+//        gameTimer.start();
+//    }
+    
     private void startTimer() {
+
         gameTimer = new Timer(1000, e -> {
+
             timeLeft--;
+
             timerLabel.setText("Time Left: " + timeLeft + "s");
+
             if (timeLeft <= 0) {
+
                 gameTimer.stop();
-                JOptionPane.showMessageDialog(this, "Time's up! Your final score: " + score);
-                
-                setVisible(false);
-                new MainGUI().setVisible(true);
+
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Time's up! Your final score: " + score
+                );
+
+                dispose();
+
+                new com.perisic.fish.trivia.TriviaGUI();
             }
         });
+
         gameTimer.start();
     }
 
