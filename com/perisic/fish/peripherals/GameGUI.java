@@ -26,7 +26,7 @@ public class GameGUI extends JFrame implements ActionListener {
     private GameServer gameServer;
     private Game currentGame;
     private int score = 0;
-    private int timeLeft = 120;
+    private int timeLeft = 60;
    
 
     private final String currentPlayer;

@@ -1,7 +1,9 @@
 
 package com.perisic.fish.peripherals;
+import com.perisic.fish.engine.MusicPlayer;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,10 +13,18 @@ public class MainGUI extends JFrame implements ActionListener {
     private static final long serialVersionUID = 1L;
 
     private JButton startButton, creditsButton, quitButton;
+    private MusicPlayer musicPlayer;
 
     public MainGUI() {
         super("Main Menu");
         initializeUI();
+        playBackgroundMusic();
+    }
+    private void playBackgroundMusic() {
+        if (musicPlayer == null) {  // Ensure only one instance plays
+            musicPlayer = MusicPlayer.getInstance("C:\\Users\\SHASHIRA\\eclipse-workspace\\Fishing Math Project2\\com\\perisic\\fish\\music\\fishingmathbackgroundmusic.wav");
+            musicPlayer.playMusic(true);
+        }
     }
 
     private void initializeUI() {
